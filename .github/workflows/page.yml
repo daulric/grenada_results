@@ -1,6 +1,9 @@
 name: Scrape Grenada Election Results
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 6 * * 1"   # every Monday at 6am UTC
   workflow_dispatch:
