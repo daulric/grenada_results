@@ -116,3 +116,4 @@ Contains detailed breakdowns for each constituency (if available for that year).
 ```
 
 By (daulric)[https://daulric.dev]
+Instagram: https://instagram.com/daulricc
