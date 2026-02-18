@@ -1,27 +1,3 @@
-"""
-Scraper for Grenadian General Election results by constituency.
-Source: https://en.wikipedia.org/wiki/{year}_Grenadian_general_election#By_constituency
-
-The "By constituency" section is a single table with columns:
-  Constituency | Electorate | Turnout | % | Political party | Candidate | Votes | %
-Constituency cells use rowspan across multiple candidate rows.
-
-Usage:
-    uv run scrape_grenada_election.py <year>
-
-Example:
-    uv run scrape_grenada_election.py 2022
-    uv run scrape_grenada_election.py 2018
-"""
-
-# /// script
-# requires-python = ">=3.11"
-# dependencies = [
-#   "requests",
-#   "beautifulsoup4",
-# ]
-# ///
-
 import json
 import re
 import sys
@@ -392,7 +368,6 @@ def scrape_election_results(year: int, debug: bool = False) -> dict:
     return {
         "election": f"{year} Grenadian General Election",
         "year":     year,
-        "source":   url,
         "results":  results,
     }
 
@@ -444,7 +419,6 @@ if __name__ == "__main__":
                 json.dump({
                     "election":       f"{year} Grenadian General Election",
                     "year":           year,
-                    "source":         wiki_url(year) + "#By_constituency",
                     "constituencies": constituencies,
                 }, f, indent=2, ensure_ascii=False)
             print(f"\n✅ Constituency data saved to '{const_file}'")

@@ -5,168 +5,206 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Grenada General Elections</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    /* Material Design 3 tokens – Grenada-inspired */
     :root {
-      --green:  #009A44;
-      --red:    #CE1126;
-      --gold:   #FCD116;
-      --bg:     #f7f5f0;
-      --surface:#ffffff;
-      --border: #e2ddd6;
-      --text:   #1a1612;
-      --muted:  #6b6258;
-      --radius: 14px;
+      --md-sys-color-primary: #006A44;
+      --md-sys-color-on-primary: #FFFFFF;
+      --md-sys-color-primary-container: #B8F397;
+      --md-sys-color-on-primary-container: #002200;
+      --md-sys-color-secondary: #CE1126;
+      --md-sys-color-on-secondary: #FFFFFF;
+      --md-sys-color-primary-container-alt: #FCD116;
+      --md-sys-color-on-primary-container-alt: #1C1B00;
+      --md-sys-color-surface: #FDFDF6;
+      --md-sys-color-on-surface: #1C1B16;
+      --md-sys-color-on-surface-variant: #4F4E45;
+      --md-sys-color-outline: #80786E;
+      --md-sys-color-outline-variant: #E8E2D9;
+      --md-sys-color-surface-container: #F3F0E8;
+      --md-sys-color-surface-container-high: #EDE9E0;
+      --md-sys-color-surface-container-highest: #E8E4DB;
+      --md-sys-color-error: #BA1A1A;
+      --md-sys-color-on-error: #FFFFFF;
+      --md-sys-color-tertiary: #166534;
+      --md-sys-color-on-tertiary: #FFFFFF;
+      --md-sys-color-inverse-tertiary: #991b1b;
+      --md-sys-shape-corner-extra-large: 28px;
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-medium: 12px;
+      --md-sys-shape-corner-small: 8px;
+      --md-sys-shape-corner-full: 9999px;
+      --md-sys-elevation-1: 0 1px 2px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.15);
+      --md-sys-elevation-2: 0 1px 2px rgba(0,0,0,.3), 0 2px 6px rgba(0,0,0,.2);
+      --md-sys-elevation-3: 0 4px 8px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.1);
     }
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 
-    body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+    body {
+      font-family:'Roboto',sans-serif;
+      font-size:14px;
+      background:var(--md-sys-color-surface-container);
+      color:var(--md-sys-color-on-surface);
+      line-height:1.5;
+    }
 
-    /* Nav */
+    /* Top app bar – MD3 */
     .topbar {
-      background: linear-gradient(90deg, var(--red) 0%, var(--red) 8px, var(--green) 8px, var(--green) calc(100% - 8px), var(--red) calc(100% - 8px));
+      background:var(--md-sys-color-surface);
       position:sticky; top:0; z-index:100;
-      display:flex; align-items:center; gap:16px;
-      padding:0 24px; height:56px;
-      box-shadow:0 2px 8px rgba(0,0,0,.25);
+      display:flex; align-items:center; gap:12px;
+      padding:0 24px; height:64px;
+      box-shadow:var(--md-sys-elevation-2);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
+    }
+    .topbar::before {
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg, var(--md-sys-color-secondary) 0%, var(--md-sys-color-primary-container-alt) 50%, var(--md-sys-color-primary) 100%);
     }
     .topbar-title {
-      font-family:'Bebas Neue',sans-serif;
-      font-size:1.6rem; letter-spacing:.06em;
-      color:#fff;
+      font-size:1.25rem; font-weight:600; letter-spacing:.02em;
+      color:var(--md-sys-color-on-surface);
       margin-right:auto;
     }
-    .topbar-title span { color:var(--gold); }
+    .topbar-title span { color:var(--md-sys-color-primary); }
     .nav-chip {
       font-size:13px; font-weight:500;
-      color:rgba(255,255,255,.75);
-      padding:6px 14px; border-radius:999px;
+      color:var(--md-sys-color-on-surface-variant);
+      padding:6px 14px; border-radius:var(--md-sys-shape-corner-full);
       text-decoration:none;
-      border:1px solid rgba(255,255,255,.2);
-      transition:all .15s;
+      background:var(--md-sys-color-surface-container);
+      border:1px solid var(--md-sys-color-outline-variant);
+      transition:background .2s, color .2s, border-color .2s;
     }
-    .nav-chip:hover { background:rgba(255,255,255,.15); color:#fff; }
+    .nav-chip:hover {
+      background:var(--md-sys-color-surface-container-high);
+      color:var(--md-sys-color-on-surface);
+      border-color:var(--md-sys-color-outline);
+    }
 
     /* Layout */
-    .wrapper { max-width:960px; margin:0 auto; padding:32px 24px 80px; }
+    .wrapper { max-width:960px; margin:0 auto; padding:24px 16px 80px; }
 
     .year-section {
-      background:var(--surface);
-      border-radius:var(--radius);
-      box-shadow:0 1px 3px rgba(0,0,0,.07), 0 4px 12px rgba(0,0,0,.05);
-      padding:32px;
-      margin-bottom:32px;
-      animation:fadeUp .4s ease both;
+      background:var(--md-sys-color-surface);
+      border-radius:var(--md-sys-shape-corner-extra-large);
+      box-shadow:var(--md-sys-elevation-1);
+      border:1px solid var(--md-sys-color-outline-variant);
+      padding:24px;
+      margin-bottom:24px;
+      animation:fadeUp .35s cubic-bezier(0.2,0,0,1) both;
     }
     @keyframes fadeUp {
-      from{ opacity:0; transform:translateY(12px); }
-      to  { opacity:1; transform:translateY(0); }
+      from{ opacity:0; transform:translateY(16px); }
+      to{ opacity:1; transform:translateY(0); }
     }
 
     .year-header {
       display:flex; align-items:center; justify-content:space-between;
-      margin-bottom:24px;
+      margin-bottom:20px;
       padding-bottom:16px;
-      border-bottom:2px solid var(--gold);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
     }
     .year-title {
-      font-family:'Playfair Display',serif;
-      font-size:2rem; color:var(--red);
+      font-size:1.5rem; font-weight:500; letter-spacing:.01em;
+      color:var(--md-sys-color-secondary);
     }
-    .source-link {
-      font-size:12px; color:var(--muted);
-      text-decoration:none; border-bottom:1px dashed var(--border);
-    }
-    .source-link:hover { color:var(--green); }
 
     .sub-heading {
       font-size:11px; font-weight:600;
       letter-spacing:.1em; text-transform:uppercase;
-      color:var(--muted); margin:24px 0 12px;
+      color:var(--md-sys-color-on-surface-variant);
+      margin:20px 0 12px;
     }
 
-    /* Table */
+    /* Table – MD3 */
     .data-table { width:100%; border-collapse:collapse; }
-    .data-table thead tr { background:var(--bg); }
+    .data-table thead tr { background:var(--md-sys-color-surface-container); }
     .data-table th {
       font-size:11px; font-weight:600; letter-spacing:.08em;
-      text-transform:uppercase; color:var(--muted);
-      padding:10px 14px; text-align:left;
+      text-transform:uppercase; color:var(--md-sys-color-on-surface-variant);
+      padding:12px 16px; text-align:left;
     }
     .data-table tbody tr {
-      border-bottom:1px solid var(--border);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
       transition:background .12s;
     }
     .data-table tbody tr:last-child { border:none; }
-    .data-table tbody tr:hover { background:var(--bg); }
-    .data-table td { padding:12px 14px; vertical-align:middle; }
+    .data-table tbody tr:hover { background:var(--md-sys-color-surface-container); }
+    .data-table td { padding:12px 16px; vertical-align:middle; }
 
-    .td-party { display:flex; align-items:center; gap:10px; font-weight:500; font-size:14px; min-width:200px; }
-    .td-bar { width:180px; padding-right:8px; }
-    .bar { height:8px; border-radius:4px; min-width:3px; }
-    .td-num { font-family:'Inter',sans-serif; font-variant-numeric: tabular-nums; font-size:13px; white-space:nowrap; }
+    .td-party { display:flex; align-items:center; gap:12px; font-weight:500; font-size:14px; min-width:200px; }
+    .td-bar { width:160px; padding-right:8px; }
+    .bar { height:8px; border-radius:var(--md-sys-shape-corner-full); min-width:4px; }
+    .td-num { font-variant-numeric:tabular-nums; font-size:13px; white-space:nowrap; }
     .bold { font-weight:600; font-size:15px; }
-    .pos { color:#166534; } .neg { color:#991b1b; } .neu { color:var(--muted); }
+    .pos { color:var(--md-sys-color-tertiary); }
+    .neg { color:var(--md-sys-color-inverse-tertiary); }
+    .neu { color:var(--md-sys-color-on-surface-variant); }
 
     .dot { display:inline-block; width:10px; height:10px; border-radius:50%; flex-shrink:0; }
     .dot.sm { width:8px; height:8px; }
 
-    /* Constituency */
+    /* Constituency cards – MD3 filled */
     .const-grid {
       display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(400px, 1fr));
-      gap:14px;
+      grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));
+      gap:16px;
     }
     .const-card {
-      border:1px solid var(--border);
-      border-radius:10px;
+      background:var(--md-sys-color-surface-container);
+      border-radius:var(--md-sys-shape-corner-large);
+      border:1px solid var(--md-sys-color-outline-variant);
       overflow:hidden;
-      transition:box-shadow .15s;
+      transition:box-shadow .2s, border-color .2s;
     }
-    .const-card:hover { box-shadow:0 4px 16px rgba(0,0,0,.08); }
+    .const-card:hover { box-shadow:var(--md-sys-elevation-2); border-color:var(--md-sys-color-outline); }
     .const-head {
       display:flex; align-items:center; justify-content:space-between; gap:8px;
-      padding:12px 14px;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
+      padding:12px 16px;
+      background:var(--md-sys-color-surface-container-high);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
     }
     .const-name { font-weight:600; font-size:13px; }
     .badge {
       font-size:11px; font-weight:500;
-      padding:3px 10px; border-radius:999px;
+      padding:4px 12px; border-radius:var(--md-sys-shape-corner-full);
       white-space:nowrap; flex-shrink:0;
     }
     .const-meta {
-      display:flex; gap:16px; padding:8px 14px;
-      font-size:11px; color:var(--muted);
-      border-bottom:1px solid var(--border);
-      background:#fafbf9;
+      display:flex; gap:16px; padding:10px 16px;
+      font-size:11px; color:var(--md-sys-color-on-surface-variant);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
     }
-    .const-meta b { color:var(--text); }
-    .const-cands { padding:10px 14px; display:flex; flex-direction:column; gap:8px; }
+    .const-meta b { color:var(--md-sys-color-on-surface); }
+    .const-cands { padding:12px 16px; display:flex; flex-direction:column; gap:8px; }
     .cand {
       display:grid;
       grid-template-columns:8px 1fr auto 72px 52px 40px;
-      align-items:center; gap:6px;
+      align-items:center; gap:8px;
     }
     .cand-name { font-size:12px; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-    .cand-party { font-size:11px; color:var(--muted); white-space:nowrap; }
-    .mini-bar-wrap { height:5px; background:var(--border); border-radius:3px; overflow:hidden; }
-    .mini-bar { height:100%; border-radius:3px; }
-    .cand-votes { font-family:'Inter',sans-serif; font-variant-numeric: tabular-nums; font-size:11px; text-align:right; }
-    .cand-pct   { font-family:'Inter',sans-serif; font-variant-numeric: tabular-nums; font-size:10px; color:var(--muted); text-align:right; }
+    .cand-party { font-size:11px; color:var(--md-sys-color-on-surface-variant); white-space:nowrap; }
+    .mini-bar-wrap { height:6px; background:var(--md-sys-color-outline-variant); border-radius:var(--md-sys-shape-corner-full); overflow:hidden; }
+    .mini-bar { height:100%; border-radius:var(--md-sys-shape-corner-full); }
+    .cand-votes { font-variant-numeric:tabular-nums; font-size:11px; text-align:right; }
+    .cand-pct { font-variant-numeric:tabular-nums; font-size:10px; color:var(--md-sys-color-on-surface-variant); text-align:right; }
 
     /* Footer */
     footer {
       text-align:center; padding:24px;
-      font-size:12px; color:var(--muted);
-      border-top:1px solid var(--border);
+      font-size:12px; color:var(--md-sys-color-on-surface-variant);
+      border-top:1px solid var(--md-sys-color-outline-variant);
+      background:var(--md-sys-color-surface);
     }
 
     @media(max-width:600px) {
       .const-grid { grid-template-columns:1fr; }
       .td-bar { display:none; }
-      .topbar { gap:8px; }
+      .topbar { gap:8px; padding:0 12px; }
       .year-section { padding:20px 16px; }
     }
   </style>
@@ -175,14 +213,13 @@
 
 <nav class="topbar">
   <span class="topbar-title">Grenada <span>Elections</span></span>
-  <a href="#year-2022" class="nav-chip">2022</a><a href="#year-2018" class="nav-chip">2018</a><a href="#year-2013" class="nav-chip">2013</a><a href="#year-2008" class="nav-chip">2008</a><a href="#year-2003" class="nav-chip">2003</a><a href="#year-1999" class="nav-chip">1999</a><a href="#year-1995" class="nav-chip">1995</a><a href="#year-1990" class="nav-chip">1990</a><a href="#year-1984" class="nav-chip">1984</a>
+  <a href="#year-2022" class="nav-chip">2022</a>
 </nav>
 
 <div class="wrapper">
   <section class="year-section" id="year-2022">
         <div class="year-header">
           <h2 class="year-title">2022</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/2022_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
         </div>
         <h3 class="sub-heading">Overall Results</h3>
         <table class="data-table">
@@ -514,730 +551,10 @@
               <span class="cand-pct">53.98%</span>
             </div></div>
         </div></div>
-      </section><section class="year-section" id="year-2018">
-        <div class="year-header">
-          <h2 class="year-title">2018</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/2018_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#02670180"></div>
-          </td>
-          <td class="td-num">33,792</td>
-          <td class="td-num">58.91%</td>
-          <td class="td-num bold">15</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:68.8%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">23,249</td>
-          <td class="td-num">40.53%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#C0504D"></span>Grenada Progressive Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.3%;background:#C0504D80"></div>
-          </td>
-          <td class="td-num">86</td>
-          <td class="td-num">0.15%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#F79646"></span>The Liberal Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#F7964680"></div>
-          </td>
-          <td class="td-num">49</td>
-          <td class="td-num">0.09%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#4BACC6"></span>Grenada Renaissance Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#4BACC680"></div>
-          </td>
-          <td class="td-num">44</td>
-          <td class="td-num">0.08%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#C0504D"></span>The Progress Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#C0504D80"></div>
-          </td>
-          <td class="td-num">41</td>
-          <td class="td-num">0.07%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#808080"></span>Grenada Empowerment Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#80808080"></div>
-          </td>
-          <td class="td-num">25</td>
-          <td class="td-num">0.04%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#CED2DB"></span>Grenada United Patriotic Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#CED2DB80"></div>
-          </td>
-          <td class="td-num">10</td>
-          <td class="td-num">0.02%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.2%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">68</td>
-          <td class="td-num">0.12%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-2013">
-        <div class="year-header">
-          <h2 class="year-title">2013</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/2013_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#02670180"></div>
-          </td>
-          <td class="td-num">32,205</td>
-          <td class="td-num">58.71%</td>
-          <td class="td-num bold">15</td>
-          <td class="td-num pos">+11</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:69.5%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">22,377</td>
-          <td class="td-num">40.79%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neg">–11</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>National United Front
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.6%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">186</td>
-          <td class="td-num">0.34%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Movement of Independent Candidates
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">25</td>
-          <td class="td-num">0.05%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#4BACC6"></span>Grenada Renaissance Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#4BACC680"></div>
-          </td>
-          <td class="td-num">20</td>
-          <td class="td-num">0.04%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>Good Old Democratic Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">14</td>
-          <td class="td-num">0.03%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#CED2DB"></span>Grenada United Patriotic Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#CED2DB80"></div>
-          </td>
-          <td class="td-num">14</td>
-          <td class="td-num">0.03%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>People's United Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">11</td>
-          <td class="td-num">0.02%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">5</td>
-          <td class="td-num">0.01%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-2008">
-        <div class="year-header">
-          <h2 class="year-title">2008</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/2008_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">29,007</td>
-          <td class="td-num">51.17%</td>
-          <td class="td-num bold">11</td>
-          <td class="td-num pos">+4</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:93.7%;background:#02670180"></div>
-          </td>
-          <td class="td-num">27,189</td>
-          <td class="td-num">47.96%</td>
-          <td class="td-num bold">4</td>
-          <td class="td-num neg">–4</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Labour Platform (GULP–PLM)
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:1.6%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">478</td>
-          <td class="td-num">0.84%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">12</td>
-          <td class="td-num">0.02%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-2003">
-        <div class="year-header">
-          <h2 class="year-title">2003</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/2003_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#02670180"></div>
-          </td>
-          <td class="td-num">22,566</td>
-          <td class="td-num">47.77%</td>
-          <td class="td-num bold">8</td>
-          <td class="td-num neg">–7</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:95.0%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">21,445</td>
-          <td class="td-num">45.4%</td>
-          <td class="td-num bold">7</td>
-          <td class="td-num pos">+7</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Grenada United Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:9.9%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">2,243</td>
-          <td class="td-num">4.75%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>People's Labour Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:4.1%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">933</td>
-          <td class="td-num">1.98%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>Good Old Democratic Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">10</td>
-          <td class="td-num">0.02%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#4BACC6"></span>Grenada Renaissance Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#4BACC680"></div>
-          </td>
-          <td class="td-num">6</td>
-          <td class="td-num">0.01%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.2%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">36</td>
-          <td class="td-num">0.08%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-1999">
-        <div class="year-header">
-          <h2 class="year-title">1999</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/1999_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#02670180"></div>
-          </td>
-          <td class="td-num">25,896</td>
-          <td class="td-num">62.47%</td>
-          <td class="td-num bold">15</td>
-          <td class="td-num pos">+7</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:40.1%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">10,396</td>
-          <td class="td-num">25.08%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neg">–5</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>GULP–United Labour
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:18.7%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">4,853</td>
-          <td class="td-num">11.71%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neg">–2</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#CED2DB"></span>Maurice Bishop Patriotic Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:1.0%;background:#CED2DB80"></div>
-          </td>
-          <td class="td-num">260</td>
-          <td class="td-num">0.63%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>Good Old Democratic Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">12</td>
-          <td class="td-num">0.03%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">38</td>
-          <td class="td-num">0.09%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-1995">
-        <div class="year-header">
-          <h2 class="year-title">1995</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/1995_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#02670180"></div>
-          </td>
-          <td class="td-num">14,154</td>
-          <td class="td-num">32.37%</td>
-          <td class="td-num bold">8</td>
-          <td class="td-num pos">+6</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:94.5%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">13,372</td>
-          <td class="td-num">30.59%</td>
-          <td class="td-num bold">5</td>
-          <td class="td-num neg">–2</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Grenada United Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:82.0%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">11,608</td>
-          <td class="td-num">26.55%</td>
-          <td class="td-num bold">2</td>
-          <td class="td-num neg">–2</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>The National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:20.0%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">2,826</td>
-          <td class="td-num">6.46%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neg">–2</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#CED2DB"></span>Maurice Bishop Patriotic Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:4.9%;background:#CED2DB80"></div>
-          </td>
-          <td class="td-num">694</td>
-          <td class="td-num">1.59%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>United Republican Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.5%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">67</td>
-          <td class="td-num">0.15%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>Good Old Democratic Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">16</td>
-          <td class="td-num">0.04%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:6.9%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">982</td>
-          <td class="td-num">2.25%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-1990">
-        <div class="year-header">
-          <h2 class="year-title">1990</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/1990_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#FECA09"></span>National Democratic Congress
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#FECA0980"></div>
-          </td>
-          <td class="td-num">13,637</td>
-          <td class="td-num">34.55%</td>
-          <td class="td-num bold">7</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Grenada United Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:81.4%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">11,105</td>
-          <td class="td-num">28.13%</td>
-          <td class="td-num bold">4</td>
-          <td class="td-num pos">+3</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:50.7%;background:#02670180"></div>
-          </td>
-          <td class="td-num">6,916</td>
-          <td class="td-num">17.52%</td>
-          <td class="td-num bold">2</td>
-          <td class="td-num neg">–12</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>The National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:50.3%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">6,854</td>
-          <td class="td-num">17.36%</td>
-          <td class="td-num bold">2</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#CED2DB"></span>Maurice Bishop Patriotic Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:6.9%;background:#CED2DB80"></div>
-          </td>
-          <td class="td-num">938</td>
-          <td class="td-num">2.38%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#94A3B8"></span>Good Old Democratic Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#94A3B880"></div>
-          </td>
-          <td class="td-num">6</td>
-          <td class="td-num">0.02%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.1%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">15</td>
-          <td class="td-num">0.04%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
-      </section><section class="year-section" id="year-1984">
-        <div class="year-header">
-          <h2 class="year-title">1984</h2>
-          <a class="source-link" href="https://en.wikipedia.org/wiki/1984_Grenadian_general_election" target="_blank">Wikipedia ↗</a>
-        </div>
-        <h3 class="sub-heading">Overall Results</h3>
-        <table class="data-table">
-      <thead><tr>
-        <th>Party</th><th>Bar</th><th>Votes</th><th>%</th><th>Seats</th><th>+/–</th>
-      </tr></thead>
-      <tbody><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#026701"></span>New National Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:100.0%;background:#02670180"></div>
-          </td>
-          <td class="td-num">24,045</td>
-          <td class="td-num">58.61%</td>
-          <td class="td-num bold">14</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Grenada United Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:61.2%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">14,721</td>
-          <td class="td-num">35.88%</td>
-          <td class="td-num bold">1</td>
-          <td class="td-num neg">–8</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#CED2DB"></span>Maurice Bishop Patriotic Movement
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:8.5%;background:#CED2DB80"></div>
-          </td>
-          <td class="td-num">2,039</td>
-          <td class="td-num">4.97%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Christian Democratic Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.4%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">104</td>
-          <td class="td-num">0.25%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#D50000"></span>Grenada Federated Labour Party
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.0%;background:#D5000080"></div>
-          </td>
-          <td class="td-num">10</td>
-          <td class="td-num">0.02%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">New</td>
-        </tr><tr>
-          <td class="td-party">
-            <span class="dot" style="background:#DCDCDC"></span>Independents
-          </td>
-          <td class="td-bar">
-            <div class="bar" style="width:0.4%;background:#DCDCDC80"></div>
-          </td>
-          <td class="td-num">104</td>
-          <td class="td-num">0.25%</td>
-          <td class="td-num bold">0</td>
-          <td class="td-num neu">0</td>
-        </tr></tbody>
-    </table>
-        
       </section>
 </div>
 
-<footer>Generated from Wikipedia election data</footer>
+<footer>Follow us on Instagram: https://instagram.com/daulricc</footer>
 
 </body>
 </html>

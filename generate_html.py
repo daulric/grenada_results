@@ -149,15 +149,12 @@ def build_page(years_data: list[tuple]) -> str:
 
     sections = ""
     for year, general, constituency in years_data:
-        election_name = general.get("election", f"{year} Grenadian General Election")
-        source        = general.get("source", "")
         general_html  = render_general(year, general)
         const_html    = render_constituency(constituency) if constituency else ""
 
         sections += f"""<section class="year-section" id="year-{year}">
         <div class="year-header">
           <h2 class="year-title">{year}</h2>
-          <a class="source-link" href="{source}" target="_blank">Wikipedia ↗</a>
         </div>
         <h3 class="sub-heading">Overall Results</h3>
         {general_html}
@@ -171,168 +168,206 @@ def build_page(years_data: list[tuple]) -> str:
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Grenada General Elections</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    /* Material Design 3 tokens – Grenada-inspired */
     :root {{
-      --green:  #009A44;
-      --red:    #CE1126;
-      --gold:   #FCD116;
-      --bg:     #f7f5f0;
-      --surface:#ffffff;
-      --border: #e2ddd6;
-      --text:   #1a1612;
-      --muted:  #6b6258;
-      --radius: 14px;
+      --md-sys-color-primary: #006A44;
+      --md-sys-color-on-primary: #FFFFFF;
+      --md-sys-color-primary-container: #B8F397;
+      --md-sys-color-on-primary-container: #002200;
+      --md-sys-color-secondary: #CE1126;
+      --md-sys-color-on-secondary: #FFFFFF;
+      --md-sys-color-primary-container-alt: #FCD116;
+      --md-sys-color-on-primary-container-alt: #1C1B00;
+      --md-sys-color-surface: #FDFDF6;
+      --md-sys-color-on-surface: #1C1B16;
+      --md-sys-color-on-surface-variant: #4F4E45;
+      --md-sys-color-outline: #80786E;
+      --md-sys-color-outline-variant: #E8E2D9;
+      --md-sys-color-surface-container: #F3F0E8;
+      --md-sys-color-surface-container-high: #EDE9E0;
+      --md-sys-color-surface-container-highest: #E8E4DB;
+      --md-sys-color-error: #BA1A1A;
+      --md-sys-color-on-error: #FFFFFF;
+      --md-sys-color-tertiary: #166534;
+      --md-sys-color-on-tertiary: #FFFFFF;
+      --md-sys-color-inverse-tertiary: #991b1b;
+      --md-sys-shape-corner-extra-large: 28px;
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-medium: 12px;
+      --md-sys-shape-corner-small: 8px;
+      --md-sys-shape-corner-full: 9999px;
+      --md-sys-elevation-1: 0 1px 2px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.15);
+      --md-sys-elevation-2: 0 1px 2px rgba(0,0,0,.3), 0 2px 6px rgba(0,0,0,.2);
+      --md-sys-elevation-3: 0 4px 8px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.1);
     }}
     *, *::before, *::after {{ box-sizing:border-box; margin:0; padding:0; }}
 
-    body {{ font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }}
+    body {{
+      font-family:'Roboto',sans-serif;
+      font-size:14px;
+      background:var(--md-sys-color-surface-container);
+      color:var(--md-sys-color-on-surface);
+      line-height:1.5;
+    }}
 
-    /* Nav */
+    /* Top app bar – MD3 */
     .topbar {{
-      background: linear-gradient(90deg, var(--red) 0%, var(--red) 8px, var(--green) 8px, var(--green) calc(100% - 8px), var(--red) calc(100% - 8px));
+      background:var(--md-sys-color-surface);
       position:sticky; top:0; z-index:100;
-      display:flex; align-items:center; gap:16px;
-      padding:0 24px; height:56px;
-      box-shadow:0 2px 8px rgba(0,0,0,.25);
+      display:flex; align-items:center; gap:12px;
+      padding:0 24px; height:64px;
+      box-shadow:var(--md-sys-elevation-2);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
+    }}
+    .topbar::before {{
+      content:'';
+      position:absolute;
+      top:0; left:0; right:0; height:4px;
+      background:linear-gradient(90deg, var(--md-sys-color-secondary) 0%, var(--md-sys-color-primary-container-alt) 50%, var(--md-sys-color-primary) 100%);
     }}
     .topbar-title {{
-      font-family:'Bebas Neue',sans-serif;
-      font-size:1.6rem; letter-spacing:.06em;
-      color:#fff;
+      font-size:1.25rem; font-weight:600; letter-spacing:.02em;
+      color:var(--md-sys-color-on-surface);
       margin-right:auto;
     }}
-    .topbar-title span {{ color:var(--gold); }}
+    .topbar-title span {{ color:var(--md-sys-color-primary); }}
     .nav-chip {{
       font-size:13px; font-weight:500;
-      color:rgba(255,255,255,.75);
-      padding:6px 14px; border-radius:999px;
+      color:var(--md-sys-color-on-surface-variant);
+      padding:6px 14px; border-radius:var(--md-sys-shape-corner-full);
       text-decoration:none;
-      border:1px solid rgba(255,255,255,.2);
-      transition:all .15s;
+      background:var(--md-sys-color-surface-container);
+      border:1px solid var(--md-sys-color-outline-variant);
+      transition:background .2s, color .2s, border-color .2s;
     }}
-    .nav-chip:hover {{ background:rgba(255,255,255,.15); color:#fff; }}
+    .nav-chip:hover {{
+      background:var(--md-sys-color-surface-container-high);
+      color:var(--md-sys-color-on-surface);
+      border-color:var(--md-sys-color-outline);
+    }}
 
     /* Layout */
-    .wrapper {{ max-width:960px; margin:0 auto; padding:32px 24px 80px; }}
+    .wrapper {{ max-width:960px; margin:0 auto; padding:24px 16px 80px; }}
 
     .year-section {{
-      background:var(--surface);
-      border-radius:var(--radius);
-      box-shadow:0 1px 3px rgba(0,0,0,.07), 0 4px 12px rgba(0,0,0,.05);
-      padding:32px;
-      margin-bottom:32px;
-      animation:fadeUp .4s ease both;
+      background:var(--md-sys-color-surface);
+      border-radius:var(--md-sys-shape-corner-extra-large);
+      box-shadow:var(--md-sys-elevation-1);
+      border:1px solid var(--md-sys-color-outline-variant);
+      padding:24px;
+      margin-bottom:24px;
+      animation:fadeUp .35s cubic-bezier(0.2,0,0,1) both;
     }}
     @keyframes fadeUp {{
-      from{{ opacity:0; transform:translateY(12px); }}
-      to  {{ opacity:1; transform:translateY(0); }}
+      from{{ opacity:0; transform:translateY(16px); }}
+      to{{ opacity:1; transform:translateY(0); }}
     }}
 
     .year-header {{
       display:flex; align-items:center; justify-content:space-between;
-      margin-bottom:24px;
+      margin-bottom:20px;
       padding-bottom:16px;
-      border-bottom:2px solid var(--gold);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
     }}
     .year-title {{
-      font-family:'Playfair Display',serif;
-      font-size:2rem; color:var(--red);
+      font-size:1.5rem; font-weight:500; letter-spacing:.01em;
+      color:var(--md-sys-color-secondary);
     }}
-    .source-link {{
-      font-size:12px; color:var(--muted);
-      text-decoration:none; border-bottom:1px dashed var(--border);
-    }}
-    .source-link:hover {{ color:var(--green); }}
 
     .sub-heading {{
       font-size:11px; font-weight:600;
       letter-spacing:.1em; text-transform:uppercase;
-      color:var(--muted); margin:24px 0 12px;
+      color:var(--md-sys-color-on-surface-variant);
+      margin:20px 0 12px;
     }}
 
-    /* Table */
+    /* Table – MD3 */
     .data-table {{ width:100%; border-collapse:collapse; }}
-    .data-table thead tr {{ background:var(--bg); }}
+    .data-table thead tr {{ background:var(--md-sys-color-surface-container); }}
     .data-table th {{
       font-size:11px; font-weight:600; letter-spacing:.08em;
-      text-transform:uppercase; color:var(--muted);
-      padding:10px 14px; text-align:left;
+      text-transform:uppercase; color:var(--md-sys-color-on-surface-variant);
+      padding:12px 16px; text-align:left;
     }}
     .data-table tbody tr {{
-      border-bottom:1px solid var(--border);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
       transition:background .12s;
     }}
     .data-table tbody tr:last-child {{ border:none; }}
-    .data-table tbody tr:hover {{ background:var(--bg); }}
-    .data-table td {{ padding:12px 14px; vertical-align:middle; }}
+    .data-table tbody tr:hover {{ background:var(--md-sys-color-surface-container); }}
+    .data-table td {{ padding:12px 16px; vertical-align:middle; }}
 
-    .td-party {{ display:flex; align-items:center; gap:10px; font-weight:500; font-size:14px; min-width:200px; }}
-    .td-bar {{ width:180px; padding-right:8px; }}
-    .bar {{ height:8px; border-radius:4px; min-width:3px; }}
-    .td-num {{ font-family:'Inter',sans-serif; font-variant-numeric: tabular-nums; font-size:13px; white-space:nowrap; }}
+    .td-party {{ display:flex; align-items:center; gap:12px; font-weight:500; font-size:14px; min-width:200px; }}
+    .td-bar {{ width:160px; padding-right:8px; }}
+    .bar {{ height:8px; border-radius:var(--md-sys-shape-corner-full); min-width:4px; }}
+    .td-num {{ font-variant-numeric:tabular-nums; font-size:13px; white-space:nowrap; }}
     .bold {{ font-weight:600; font-size:15px; }}
-    .pos {{ color:#166534; }} .neg {{ color:#991b1b; }} .neu {{ color:var(--muted); }}
+    .pos {{ color:var(--md-sys-color-tertiary); }}
+    .neg {{ color:var(--md-sys-color-inverse-tertiary); }}
+    .neu {{ color:var(--md-sys-color-on-surface-variant); }}
 
     .dot {{ display:inline-block; width:10px; height:10px; border-radius:50%; flex-shrink:0; }}
     .dot.sm {{ width:8px; height:8px; }}
 
-    /* Constituency */
+    /* Constituency cards – MD3 filled */
     .const-grid {{
       display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(400px, 1fr));
-      gap:14px;
+      grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));
+      gap:16px;
     }}
     .const-card {{
-      border:1px solid var(--border);
-      border-radius:10px;
+      background:var(--md-sys-color-surface-container);
+      border-radius:var(--md-sys-shape-corner-large);
+      border:1px solid var(--md-sys-color-outline-variant);
       overflow:hidden;
-      transition:box-shadow .15s;
+      transition:box-shadow .2s, border-color .2s;
     }}
-    .const-card:hover {{ box-shadow:0 4px 16px rgba(0,0,0,.08); }}
+    .const-card:hover {{ box-shadow:var(--md-sys-elevation-2); border-color:var(--md-sys-color-outline); }}
     .const-head {{
       display:flex; align-items:center; justify-content:space-between; gap:8px;
-      padding:12px 14px;
-      background:var(--bg);
-      border-bottom:1px solid var(--border);
+      padding:12px 16px;
+      background:var(--md-sys-color-surface-container-high);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
     }}
     .const-name {{ font-weight:600; font-size:13px; }}
     .badge {{
       font-size:11px; font-weight:500;
-      padding:3px 10px; border-radius:999px;
+      padding:4px 12px; border-radius:var(--md-sys-shape-corner-full);
       white-space:nowrap; flex-shrink:0;
     }}
     .const-meta {{
-      display:flex; gap:16px; padding:8px 14px;
-      font-size:11px; color:var(--muted);
-      border-bottom:1px solid var(--border);
-      background:#fafbf9;
+      display:flex; gap:16px; padding:10px 16px;
+      font-size:11px; color:var(--md-sys-color-on-surface-variant);
+      border-bottom:1px solid var(--md-sys-color-outline-variant);
     }}
-    .const-meta b {{ color:var(--text); }}
-    .const-cands {{ padding:10px 14px; display:flex; flex-direction:column; gap:8px; }}
+    .const-meta b {{ color:var(--md-sys-color-on-surface); }}
+    .const-cands {{ padding:12px 16px; display:flex; flex-direction:column; gap:8px; }}
     .cand {{
       display:grid;
       grid-template-columns:8px 1fr auto 72px 52px 40px;
-      align-items:center; gap:6px;
+      align-items:center; gap:8px;
     }}
     .cand-name {{ font-size:12px; font-weight:500; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }}
-    .cand-party {{ font-size:11px; color:var(--muted); white-space:nowrap; }}
-    .mini-bar-wrap {{ height:5px; background:var(--border); border-radius:3px; overflow:hidden; }}
-    .mini-bar {{ height:100%; border-radius:3px; }}
-    .cand-votes {{ font-family:'Inter',sans-serif; font-variant-numeric: tabular-nums; font-size:11px; text-align:right; }}
-    .cand-pct   {{ font-family:'Inter',sans-serif; font-variant-numeric: tabular-nums; font-size:10px; color:var(--muted); text-align:right; }}
+    .cand-party {{ font-size:11px; color:var(--md-sys-color-on-surface-variant); white-space:nowrap; }}
+    .mini-bar-wrap {{ height:6px; background:var(--md-sys-color-outline-variant); border-radius:var(--md-sys-shape-corner-full); overflow:hidden; }}
+    .mini-bar {{ height:100%; border-radius:var(--md-sys-shape-corner-full); }}
+    .cand-votes {{ font-variant-numeric:tabular-nums; font-size:11px; text-align:right; }}
+    .cand-pct {{ font-variant-numeric:tabular-nums; font-size:10px; color:var(--md-sys-color-on-surface-variant); text-align:right; }}
 
     /* Footer */
     footer {{
       text-align:center; padding:24px;
-      font-size:12px; color:var(--muted);
-      border-top:1px solid var(--border);
+      font-size:12px; color:var(--md-sys-color-on-surface-variant);
+      border-top:1px solid var(--md-sys-color-outline-variant);
+      background:var(--md-sys-color-surface);
     }}
 
     @media(max-width:600px) {{
       .const-grid {{ grid-template-columns:1fr; }}
       .td-bar {{ display:none; }}
-      .topbar {{ gap:8px; }}
+      .topbar {{ gap:8px; padding:0 12px; }}
       .year-section {{ padding:20px 16px; }}
     }}
   </style>
@@ -348,7 +383,7 @@ def build_page(years_data: list[tuple]) -> str:
   {sections}
 </div>
 
-<footer>Generated from Wikipedia election data</footer>
+<footer>Follow us on Instagram: https://instagram.com/daulricc</footer>
 
 </body>
 </html>"""
