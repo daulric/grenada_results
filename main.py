@@ -146,12 +146,20 @@ def parse_by_constituency_table(table) -> list[dict]:
         if not current_constituency:
             continue
 
-        data_cells = cells[1:] if is_new else cells
+        # New constituency rows: slice off the constituency cell (col 0)
+        # Continuation rows: only contain party onwards — slice from party_col
+        if is_new:
+            data_cells = cells[1:]
+            offset = 1   # constituency col removed
+        else:
+            # Continuation rows start directly at the party column
+            data_cells = cells
+            offset = party_col if party_col is not None else 1
 
         def get(idx):
             if idx is None:
                 return ""
-            adjusted = idx - 1
+            adjusted = idx - offset
             if 0 <= adjusted < len(data_cells):
                 return clean_text(data_cells[adjusted].get_text())
             return ""
