@@ -1,0 +1,307 @@
+{
+  "election": "2022 Grenadian General Election",
+  "year": 2022,
+  "source": "https://en.wikipedia.org/wiki/2022_Grenadian_general_election#By_constituency",
+  "constituencies": [
+    {
+      "constituency": "Carriacou and Petite Martinique",
+      "electorate": 5414,
+      "turnout": 3780,
+      "turnout_pct": 69.81,
+      "total_votes": 1954,
+      "winner": {
+        "candidate": "Tevin Andrews",
+        "party": "National Democratic Congress",
+        "votes": 1954
+      },
+      "candidates": [
+        {
+          "candidate": "Tevin Andrews",
+          "party": "National Democratic Congress",
+          "votes": 1954,
+          "percentage": 51.69
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew North East",
+      "electorate": 5362,
+      "turnout": 4071,
+      "turnout_pct": 75.92,
+      "total_votes": 2190,
+      "winner": {
+        "candidate": "Kate Lewis-Peters",
+        "party": "New National Party",
+        "votes": 2190
+      },
+      "candidates": [
+        {
+          "candidate": "Kate Lewis-Peters",
+          "party": "New National Party",
+          "votes": 2190,
+          "percentage": 53.79
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew North West",
+      "electorate": 4798,
+      "turnout": 3680,
+      "turnout_pct": 76.69,
+      "total_votes": 1898,
+      "winner": {
+        "candidate": "Delma Thomas",
+        "party": "New National Party",
+        "votes": 1898
+      },
+      "candidates": [
+        {
+          "candidate": "Delma Thomas",
+          "party": "New National Party",
+          "votes": 1898,
+          "percentage": 51.57
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew South East",
+      "electorate": 4868,
+      "turnout": 3571,
+      "turnout_pct": 73.35,
+      "total_votes": 1893,
+      "winner": {
+        "candidate": "Emmalin Pierre",
+        "party": "New National Party",
+        "votes": 1893
+      },
+      "candidates": [
+        {
+          "candidate": "Emmalin Pierre",
+          "party": "New National Party",
+          "votes": 1893,
+          "percentage": 53.01
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew South West",
+      "electorate": 5327,
+      "turnout": 3855,
+      "turnout_pct": 72.36,
+      "total_votes": 2129,
+      "winner": {
+        "candidate": "Lennox Andrews",
+        "party": "National Democratic Congress",
+        "votes": 2129
+      },
+      "candidates": [
+        {
+          "candidate": "Lennox Andrews",
+          "party": "National Democratic Congress",
+          "votes": 2129,
+          "percentage": 55.22
+        }
+      ]
+    },
+    {
+      "constituency": "St. David",
+      "electorate": 9866,
+      "turnout": 7189,
+      "turnout_pct": 72.86,
+      "total_votes": 4414,
+      "winner": {
+        "candidate": "Dickon Mitchell",
+        "party": "National Democratic Congress",
+        "votes": 4414
+      },
+      "candidates": [
+        {
+          "candidate": "Dickon Mitchell",
+          "party": "National Democratic Congress",
+          "votes": 4414,
+          "percentage": 61.39
+        }
+      ]
+    },
+    {
+      "constituency": "St. George North East",
+      "electorate": 7727,
+      "turnout": 5390,
+      "turnout_pct": 69.75,
+      "total_votes": 3220,
+      "winner": {
+        "candidate": "Ron Redhead",
+        "party": "National Democratic Congress",
+        "votes": 3220
+      },
+      "candidates": [
+        {
+          "candidate": "Ron Redhead",
+          "party": "National Democratic Congress",
+          "votes": 3220,
+          "percentage": 59.74
+        }
+      ]
+    },
+    {
+      "constituency": "St. George North West",
+      "electorate": 4534,
+      "turnout": 2995,
+      "turnout_pct": 66.05,
+      "total_votes": 2211,
+      "winner": {
+        "candidate": "Keith Mitchell",
+        "party": "New National Party",
+        "votes": 2211
+      },
+      "candidates": [
+        {
+          "candidate": "Keith Mitchell",
+          "party": "New National Party",
+          "votes": 2211,
+          "percentage": 73.82
+        }
+      ]
+    },
+    {
+      "constituency": "St. George South",
+      "electorate": 10903,
+      "turnout": 7019,
+      "turnout_pct": 64.37,
+      "total_votes": 4029,
+      "winner": {
+        "candidate": "Andy Williams",
+        "party": "National Democratic Congress",
+        "votes": 4029
+      },
+      "candidates": [
+        {
+          "candidate": "Andy Williams",
+          "party": "National Democratic Congress",
+          "votes": 4029,
+          "percentage": 57.4
+        }
+      ]
+    },
+    {
+      "constituency": "St. George South East",
+      "electorate": 5413,
+      "turnout": 3800,
+      "turnout_pct": 70.2,
+      "total_votes": 2122,
+      "winner": {
+        "candidate": "Alfred Telesford",
+        "party": "National Democratic Congress",
+        "votes": 2122
+      },
+      "candidates": [
+        {
+          "candidate": "Alfred Telesford",
+          "party": "National Democratic Congress",
+          "votes": 2122,
+          "percentage": 55.84
+        }
+      ]
+    },
+    {
+      "constituency": "St. John",
+      "electorate": 6392,
+      "turnout": 4464,
+      "turnout_pct": 69.83,
+      "total_votes": 2216,
+      "winner": {
+        "candidate": "Kerryne James",
+        "party": "National Democratic Congress",
+        "votes": 2216
+      },
+      "candidates": [
+        {
+          "candidate": "Kerryne James",
+          "party": "National Democratic Congress",
+          "votes": 2216,
+          "percentage": 49.64
+        }
+      ]
+    },
+    {
+      "constituency": "St. Mark",
+      "electorate": 3690,
+      "turnout": 2498,
+      "turnout_pct": 67.69,
+      "total_votes": 1470,
+      "winner": {
+        "candidate": "Clarice Modeste-Curwen",
+        "party": "New National Party",
+        "votes": 1470
+      },
+      "candidates": [
+        {
+          "candidate": "Clarice Modeste-Curwen",
+          "party": "New National Party",
+          "votes": 1470,
+          "percentage": 58.84
+        }
+      ]
+    },
+    {
+      "constituency": "St. Patrick East",
+      "electorate": 3914,
+      "turnout": 2791,
+      "turnout_pct": 71.3,
+      "total_votes": 1443,
+      "winner": {
+        "candidate": "Dennis Matthew-Cornwall",
+        "party": "National Democratic Congress",
+        "votes": 1443
+      },
+      "candidates": [
+        {
+          "candidate": "Dennis Matthew-Cornwall",
+          "party": "National Democratic Congress",
+          "votes": 1443,
+          "percentage": 51.7
+        }
+      ]
+    },
+    {
+      "constituency": "St. Patrick West",
+      "electorate": 4668,
+      "turnout": 3288,
+      "turnout_pct": 70.43,
+      "total_votes": 1726,
+      "winner": {
+        "candidate": "Joseph Andall",
+        "party": "National Democratic Congress",
+        "votes": 1726
+      },
+      "candidates": [
+        {
+          "candidate": "Joseph Andall",
+          "party": "National Democratic Congress",
+          "votes": 1726,
+          "percentage": 52.49
+        }
+      ]
+    },
+    {
+      "constituency": "Town of St. George",
+      "electorate": 3781,
+      "turnout": 2462,
+      "turnout_pct": 65.11,
+      "total_votes": 1329,
+      "winner": {
+        "candidate": "Peter David",
+        "party": "New National Party",
+        "votes": 1329
+      },
+      "candidates": [
+        {
+          "candidate": "Peter David",
+          "party": "New National Party",
+          "votes": 1329,
+          "percentage": 53.98
+        }
+      ]
+    }
+  ]
+}

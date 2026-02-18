@@ -1,0 +1,49 @@
+{
+  "election": "1999 Grenadian General Election",
+  "year": 1999,
+  "source": "https://en.wikipedia.org/wiki/1999_Grenadian_general_election",
+  "results": [
+    {
+      "party": "New National Party",
+      "votes": 25896,
+      "percentage": 62.47,
+      "seats": 15,
+      "change": "+7"
+    },
+    {
+      "party": "National Democratic Congress",
+      "votes": 10396,
+      "percentage": 25.08,
+      "seats": 0,
+      "change": "–5"
+    },
+    {
+      "party": "GULP–United Labour",
+      "votes": 4853,
+      "percentage": 11.71,
+      "seats": 0,
+      "change": "–2"
+    },
+    {
+      "party": "Maurice Bishop Patriotic Movement",
+      "votes": 260,
+      "percentage": 0.63,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Good Old Democratic Party",
+      "votes": 12,
+      "percentage": 0.03,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Independents",
+      "votes": 38,
+      "percentage": 0.09,
+      "seats": 0,
+      "change": "0"
+    }
+  ]
+}

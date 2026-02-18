@@ -1,0 +1,70 @@
+{
+  "election": "2018 Grenadian General Election",
+  "year": 2018,
+  "source": "https://en.wikipedia.org/wiki/2018_Grenadian_general_election",
+  "results": [
+    {
+      "party": "New National Party",
+      "votes": 33792,
+      "percentage": 58.91,
+      "seats": 15,
+      "change": "0"
+    },
+    {
+      "party": "National Democratic Congress",
+      "votes": 23249,
+      "percentage": 40.53,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Grenada Progressive Movement",
+      "votes": 86,
+      "percentage": 0.15,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "The Liberal Party",
+      "votes": 49,
+      "percentage": 0.09,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Grenada Renaissance Party",
+      "votes": 44,
+      "percentage": 0.08,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "The Progress Party",
+      "votes": 41,
+      "percentage": 0.07,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Grenada Empowerment Movement",
+      "votes": 25,
+      "percentage": 0.04,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Grenada United Patriotic Movement",
+      "votes": 10,
+      "percentage": 0.02,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Independents",
+      "votes": 68,
+      "percentage": 0.12,
+      "seats": 0,
+      "change": "0"
+    }
+  ]
+}
