@@ -1,0 +1,34 @@
+{
+  "election": "2008 Grenadian General Election",
+  "year": 2008,
+  "results": [
+    {
+      "party": "National Democratic Congress",
+      "votes": 29007,
+      "percentage": 51.17,
+      "seats": 11,
+      "change": "+4"
+    },
+    {
+      "party": "New National Party",
+      "votes": 27189,
+      "percentage": 47.96,
+      "seats": 4,
+      "change": "–4"
+    },
+    {
+      "party": "Labour Platform (GULP–PLM)",
+      "votes": 478,
+      "percentage": 0.84,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Independents",
+      "votes": 12,
+      "percentage": 0.02,
+      "seats": 0,
+      "change": "0"
+    }
+  ]
+}
