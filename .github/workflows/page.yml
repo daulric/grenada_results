@@ -79,13 +79,13 @@ jobs:
               }
           }
 
-          api_dir = Path("api")
+          api_dir = results_dir / "api"
           api_dir.mkdir(exist_ok=True)
 
           # Write root index
           (api_dir / "index.json").write_text(json.dumps(api_index, indent=2))
 
-          # Symlink or copy each year's JSON into api/{year}/
+          # Copy each year's JSON into results/api/{year}/
           for year in years:
               src_dir = results_dir / str(year)
               dst_dir = api_dir / str(year)
@@ -98,13 +98,23 @@ jobs:
           print(f"✅ API index built — {len(years)} years: {years}")
           PYEOF
 
-      - name: Commit results and API
+      - name: Prepare deployment (results folder only)
+        run: |
+          cp CNAME results/
+          touch results/.nojekyll
+
+      - name: Push to docs branch
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add results/ api/
-          git diff --staged --quiet || git commit -m "chore: update election results $(date +'%Y-%m-%d')"
-          git push
+
+          # Create orphan docs branch with results/ folder only
+          git checkout --orphan docs
+          git reset
+
+          git add results/
+          git commit -m "chore: update election results $(date +'%Y-%m-%d')"
+          git push -f origin docs
 
   deploy:
     needs: scrape
@@ -114,10 +124,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Checkout
+      - name: Checkout docs
         uses: actions/checkout@v4
         with:
-          ref: main   # pull latest after scrape job pushed
+          ref: docs
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -125,7 +135,7 @@ jobs:
       - name: Upload to Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .   # serve entire repo root
+          path: results
 
       - name: Deploy to GitHub Pages
         id: deployment
