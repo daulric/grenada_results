@@ -259,6 +259,7 @@ def build_page(years_data: list[tuple]) -> str:
       padding:24px;
       margin-bottom:24px;
       animation:fadeUp .35s cubic-bezier(0.2,0,0,1) both;
+      scroll-margin-top:80px;
     }}
     @keyframes fadeUp {{
       from{{ opacity:0; transform:translateY(16px); }}
