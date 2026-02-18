@@ -1,0 +1,129 @@
+name: Scrape Grenada Election Results
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # every Monday at 6am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+
+      - name: Scrape all election years
+        run: |
+          CURRENT_YEAR=$(date +'%Y')
+          LAST_KNOWN=2022
+
+          FUTURE_PROBES=$(python3 -c "
+          last = $LAST_KNOWN
+          current = $CURRENT_YEAR
+          years = set()
+          y = last
+          while y <= current + 5:
+              years.add(y)
+              y += 5
+          years.add(current)
+          print(' '.join(str(y) for y in sorted(years) if y > last))
+          ")
+
+          KNOWN_YEARS="1984 1990 1995 1999 2003 2008 2013 2018 2022"
+          ALL_YEARS=$(echo "$KNOWN_YEARS $FUTURE_PROBES" | tr ' ' '\n' | sort -u)
+
+          echo "Years to scrape: $ALL_YEARS"
+          for year in $ALL_YEARS; do
+            echo "──────────────────────────────"
+            echo "Scraping $year..."
+            uv run main.py $year || echo "⚠️  $year not found or failed — skipping"
+          done
+
+      - name: Generate HTML
+        run: uv run generate_html.py
+
+      - name: Build API index
+        run: |
+          python3 - << 'PYEOF'
+          import json
+          from pathlib import Path
+
+          results_dir = Path("results")
+
+          # Build api/index.json — lists all available years + their endpoints
+          years = sorted(
+              [int(d.name) for d in results_dir.iterdir()
+               if d.is_dir() and d.name.isdigit()],
+              reverse=True
+          )
+
+          api_index = {
+              "description": "Grenada General Election Results API",
+              "years": years,
+              "endpoints": {
+                  "index":        "/api/index.json",
+                  "year_general": "/api/{year}/election_general.json",
+                  "year_constituency": "/api/{year}/election_constituency.json",
+              }
+          }
+
+          api_dir = Path("api")
+          api_dir.mkdir(exist_ok=True)
+
+          # Write root index
+          (api_dir / "index.json").write_text(json.dumps(api_index, indent=2))
+
+          # Symlink or copy each year's JSON into api/{year}/
+          for year in years:
+              src_dir = results_dir / str(year)
+              dst_dir = api_dir / str(year)
+              dst_dir.mkdir(exist_ok=True)
+
+              for json_file in src_dir.glob("*.json"):
+                  dst = dst_dir / json_file.name
+                  dst.write_text(json_file.read_text(encoding="utf-8"), encoding="utf-8")
+
+          print(f"✅ API index built — {len(years)} years: {years}")
+          PYEOF
+
+      - name: Commit results and API
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results/ api/
+          git diff --staged --quiet || git commit -m "chore: update election results $(date +'%Y-%m-%d')"
+          git push
+
+  deploy:
+    needs: scrape
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main   # pull latest after scrape job pushed
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .   # serve entire repo root
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

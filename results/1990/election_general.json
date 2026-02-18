@@ -1,0 +1,56 @@
+{
+  "election": "1990 Grenadian General Election",
+  "year": 1990,
+  "source": "https://en.wikipedia.org/wiki/1990_Grenadian_general_election",
+  "results": [
+    {
+      "party": "National Democratic Congress",
+      "votes": 13637,
+      "percentage": 34.55,
+      "seats": 7,
+      "change": "New"
+    },
+    {
+      "party": "Grenada United Labour Party",
+      "votes": 11105,
+      "percentage": 28.13,
+      "seats": 4,
+      "change": "+3"
+    },
+    {
+      "party": "New National Party",
+      "votes": 6916,
+      "percentage": 17.52,
+      "seats": 2,
+      "change": "–12"
+    },
+    {
+      "party": "The National Party",
+      "votes": 6854,
+      "percentage": 17.36,
+      "seats": 2,
+      "change": "New"
+    },
+    {
+      "party": "Maurice Bishop Patriotic Movement",
+      "votes": 938,
+      "percentage": 2.38,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Good Old Democratic Party",
+      "votes": 6,
+      "percentage": 0.02,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Independents",
+      "votes": 15,
+      "percentage": 0.04,
+      "seats": 0,
+      "change": "0"
+    }
+  ]
+}
