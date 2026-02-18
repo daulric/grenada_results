@@ -115,14 +115,4 @@ Contains detailed breakdowns for each constituency (if available for that year).
 }
 ```
 
-## Supported Years
-
-- 1984
-- 1990
-- 1995
-- 1999
-- 2003
-- 2008
-- 2013
-- 2018
-- 2022
+By (daulric)[https://daulric.dev]
