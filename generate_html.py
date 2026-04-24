@@ -384,7 +384,7 @@ def build_page(years_data: list[tuple]) -> str:
   {sections}
 </div>
 
-<footer><a href="https://instagram.com/daulricc">Instagram @daulricc</a></footer>
+<footer><a href="https://www.linkedin.com/in/daulric">LinkedIn</a></footer>
 
 </body>
 </html>"""
