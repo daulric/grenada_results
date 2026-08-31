@@ -1,0 +1,462 @@
+{
+  "election": "2022 Grenadian General Election",
+  "year": 2022,
+  "constituencies": [
+    {
+      "constituency": "Carriacou and Petite Martinique",
+      "electorate": 5414,
+      "turnout": 3780,
+      "turnout_pct": 69.81,
+      "total_votes": 3759,
+      "winner": {
+        "candidate": "Tevin Andrews",
+        "party": "National Democratic Congress",
+        "votes": 1954
+      },
+      "candidates": [
+        {
+          "candidate": "Tevin Andrews",
+          "party": "National Democratic Congress",
+          "votes": 1954,
+          "percentage": 51.69
+        },
+        {
+          "candidate": "Kindra Stewart",
+          "party": "New National Party",
+          "votes": 1805,
+          "percentage": 47.75
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew North East",
+      "electorate": 5362,
+      "turnout": 4071,
+      "turnout_pct": 75.92,
+      "total_votes": 4064,
+      "winner": {
+        "candidate": "Kate Lewis-Peters",
+        "party": "New National Party",
+        "votes": 2190
+      },
+      "candidates": [
+        {
+          "candidate": "Kate Lewis-Peters",
+          "party": "New National Party",
+          "votes": 2190,
+          "percentage": 53.79
+        },
+        {
+          "candidate": "Tessa St. Cyr",
+          "party": "National Democratic Congress",
+          "votes": 1864,
+          "percentage": 45.78
+        },
+        {
+          "candidate": "Jennel Ramsee",
+          "party": "Independent Freedom Party",
+          "votes": 10,
+          "percentage": 0.24
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew North West",
+      "electorate": 4798,
+      "turnout": 3680,
+      "turnout_pct": 76.69,
+      "total_votes": 3665,
+      "winner": {
+        "candidate": "Delma Thomas",
+        "party": "New National Party",
+        "votes": 1898
+      },
+      "candidates": [
+        {
+          "candidate": "Delma Thomas",
+          "party": "New National Party",
+          "votes": 1898,
+          "percentage": 51.57
+        },
+        {
+          "candidate": "Gloria Ann Thomas",
+          "party": "National Democratic Congress",
+          "votes": 1767,
+          "percentage": 48.01
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew South East",
+      "electorate": 4868,
+      "turnout": 3571,
+      "turnout_pct": 73.35,
+      "total_votes": 3553,
+      "winner": {
+        "candidate": "Emmalin Pierre",
+        "party": "New National Party",
+        "votes": 1893
+      },
+      "candidates": [
+        {
+          "candidate": "Emmalin Pierre",
+          "party": "New National Party",
+          "votes": 1893,
+          "percentage": 53.01
+        },
+        {
+          "candidate": "David Andrew",
+          "party": "National Democratic Congress",
+          "votes": 1660,
+          "percentage": 46.48
+        }
+      ]
+    },
+    {
+      "constituency": "St. Andrew South West",
+      "electorate": 5327,
+      "turnout": 3855,
+      "turnout_pct": 72.36,
+      "total_votes": 3833,
+      "winner": {
+        "candidate": "Lennox Andrews",
+        "party": "National Democratic Congress",
+        "votes": 2129
+      },
+      "candidates": [
+        {
+          "candidate": "Lennox Andrews",
+          "party": "National Democratic Congress",
+          "votes": 2129,
+          "percentage": 55.22
+        },
+        {
+          "candidate": "Yoland Bain-Horsford",
+          "party": "New National Party",
+          "votes": 1704,
+          "percentage": 44.2
+        }
+      ]
+    },
+    {
+      "constituency": "St. David",
+      "electorate": 9866,
+      "turnout": 7189,
+      "turnout_pct": 72.86,
+      "total_votes": 7174,
+      "winner": {
+        "candidate": "Dickon Mitchell",
+        "party": "National Democratic Congress",
+        "votes": 4414
+      },
+      "candidates": [
+        {
+          "candidate": "Dickon Mitchell",
+          "party": "National Democratic Congress",
+          "votes": 4414,
+          "percentage": 61.39
+        },
+        {
+          "candidate": "Oliver Joseph",
+          "party": "New National Party",
+          "votes": 2742,
+          "percentage": 38.14
+        },
+        {
+          "candidate": "Junior Francis",
+          "party": "Independent Freedom Party",
+          "votes": 18,
+          "percentage": 0.25
+        }
+      ]
+    },
+    {
+      "constituency": "St. George North East",
+      "electorate": 7727,
+      "turnout": 5390,
+      "turnout_pct": 69.75,
+      "total_votes": 5368,
+      "winner": {
+        "candidate": "Ron Redhead",
+        "party": "National Democratic Congress",
+        "votes": 3220
+      },
+      "candidates": [
+        {
+          "candidate": "Ron Redhead",
+          "party": "National Democratic Congress",
+          "votes": 3220,
+          "percentage": 59.74
+        },
+        {
+          "candidate": "Nimrod Ollivierre",
+          "party": "New National Party",
+          "votes": 2133,
+          "percentage": 39.57
+        },
+        {
+          "candidate": "Martin Edwards",
+          "party": "Grenada Renaissance Party",
+          "votes": 15,
+          "percentage": 0.27
+        }
+      ]
+    },
+    {
+      "constituency": "St. George North West",
+      "electorate": 4534,
+      "turnout": 2995,
+      "turnout_pct": 66.05,
+      "total_votes": 2984,
+      "winner": {
+        "candidate": "Keith Mitchell",
+        "party": "New National Party",
+        "votes": 2211
+      },
+      "candidates": [
+        {
+          "candidate": "Keith Mitchell",
+          "party": "New National Party",
+          "votes": 2211,
+          "percentage": 73.82
+        },
+        {
+          "candidate": "Jonathan LaCrette",
+          "party": "National Democratic Congress",
+          "votes": 773,
+          "percentage": 25.8
+        }
+      ]
+    },
+    {
+      "constituency": "St. George South",
+      "electorate": 10903,
+      "turnout": 7019,
+      "turnout_pct": 64.37,
+      "total_votes": 7002,
+      "winner": {
+        "candidate": "Andy Williams",
+        "party": "National Democratic Congress",
+        "votes": 4029
+      },
+      "candidates": [
+        {
+          "candidate": "Andy Williams",
+          "party": "National Democratic Congress",
+          "votes": 4029,
+          "percentage": 57.4
+        },
+        {
+          "candidate": "Sebastian Cox",
+          "party": "New National Party",
+          "votes": 2961,
+          "percentage": 42.18
+        },
+        {
+          "candidate": "Mendell Samuel",
+          "party": "Grenada Renaissance Party",
+          "votes": 12,
+          "percentage": 0.17
+        }
+      ]
+    },
+    {
+      "constituency": "St. George South East",
+      "electorate": 5413,
+      "turnout": 3800,
+      "turnout_pct": 70.2,
+      "total_votes": 3792,
+      "winner": {
+        "candidate": "Alfred Telesford",
+        "party": "National Democratic Congress",
+        "votes": 2122
+      },
+      "candidates": [
+        {
+          "candidate": "Alfred Telesford",
+          "party": "National Democratic Congress",
+          "votes": 2122,
+          "percentage": 55.84
+        },
+        {
+          "candidate": "Gregory Bowen",
+          "party": "New National Party",
+          "votes": 1634,
+          "percentage": 43.0
+        },
+        {
+          "candidate": "Bassanio Nicholas",
+          "party": "Independent Freedom Party",
+          "votes": 32,
+          "percentage": 0.84
+        },
+        {
+          "candidate": "Dennyka Checkley",
+          "party": "Grenada Renaissance Party",
+          "votes": 4,
+          "percentage": 0.1
+        }
+      ]
+    },
+    {
+      "constituency": "St. John",
+      "electorate": 6392,
+      "turnout": 4464,
+      "turnout_pct": 69.83,
+      "total_votes": 4444,
+      "winner": {
+        "candidate": "Kerryne James",
+        "party": "National Democratic Congress",
+        "votes": 2216
+      },
+      "candidates": [
+        {
+          "candidate": "Kerryne James",
+          "party": "National Democratic Congress",
+          "votes": 2216,
+          "percentage": 49.64
+        },
+        {
+          "candidate": "Martin DaBreo",
+          "party": "New National Party",
+          "votes": 2209,
+          "percentage": 49.48
+        },
+        {
+          "candidate": "Geoffrey Preudhomme",
+          "party": "Grenada United Labour Party",
+          "votes": 19,
+          "percentage": 0.42
+        }
+      ]
+    },
+    {
+      "constituency": "St. Mark",
+      "electorate": 3690,
+      "turnout": 2498,
+      "turnout_pct": 67.69,
+      "total_votes": 2483,
+      "winner": {
+        "candidate": "Clarice Modeste-Curwen",
+        "party": "New National Party",
+        "votes": 1470
+      },
+      "candidates": [
+        {
+          "candidate": "Clarice Modeste-Curwen",
+          "party": "New National Party",
+          "votes": 1470,
+          "percentage": 58.84
+        },
+        {
+          "candidate": "Quinc Britton",
+          "party": "National Democratic Congress",
+          "votes": 995,
+          "percentage": 39.83
+        },
+        {
+          "candidate": "David Francis",
+          "party": "Grenada United Labour Party",
+          "votes": 18,
+          "percentage": 0.72
+        }
+      ]
+    },
+    {
+      "constituency": "St. Patrick East",
+      "electorate": 3914,
+      "turnout": 2791,
+      "turnout_pct": 71.3,
+      "total_votes": 2783,
+      "winner": {
+        "candidate": "Dennis Matthew-Cornwall",
+        "party": "National Democratic Congress",
+        "votes": 1443
+      },
+      "candidates": [
+        {
+          "candidate": "Dennis Matthew-Cornwall",
+          "party": "National Democratic Congress",
+          "votes": 1443,
+          "percentage": 51.7
+        },
+        {
+          "candidate": "Pamela Moses",
+          "party": "New National Party",
+          "votes": 1322,
+          "percentage": 47.36
+        },
+        {
+          "candidate": "Nigel John",
+          "party": "Grenada United Labour Party",
+          "votes": 18,
+          "percentage": 0.64
+        }
+      ]
+    },
+    {
+      "constituency": "St. Patrick West",
+      "electorate": 4668,
+      "turnout": 3288,
+      "turnout_pct": 70.43,
+      "total_votes": 3279,
+      "winner": {
+        "candidate": "Joseph Andall",
+        "party": "National Democratic Congress",
+        "votes": 1726
+      },
+      "candidates": [
+        {
+          "candidate": "Joseph Andall",
+          "party": "National Democratic Congress",
+          "votes": 1726,
+          "percentage": 52.49
+        },
+        {
+          "candidate": "Victor Philip",
+          "party": "New National Party",
+          "votes": 1458,
+          "percentage": 44.34
+        },
+        {
+          "candidate": "Winston Frederick",
+          "party": "Independent",
+          "votes": 86,
+          "percentage": 2.61
+        },
+        {
+          "candidate": "Augustine David",
+          "party": "Grenada United Labour Party",
+          "votes": 9,
+          "percentage": 0.27
+        }
+      ]
+    },
+    {
+      "constituency": "Town of St. George",
+      "electorate": 3781,
+      "turnout": 2462,
+      "turnout_pct": 65.11,
+      "total_votes": 2447,
+      "winner": {
+        "candidate": "Peter David",
+        "party": "New National Party",
+        "votes": 1329
+      },
+      "candidates": [
+        {
+          "candidate": "Peter David",
+          "party": "New National Party",
+          "votes": 1329,
+          "percentage": 53.98
+        },
+        {
+          "candidate": "Claudette Joseph",
+          "party": "National Democratic Congress",
+          "votes": 1118,
+          "percentage": 45.41
+        }
+      ]
+    }
+  ]
+}
