@@ -1,0 +1,62 @@
+{
+  "election": "1995 Grenadian General Election",
+  "year": 1995,
+  "results": [
+    {
+      "party": "New National Party",
+      "votes": 14154,
+      "percentage": 32.37,
+      "seats": 8,
+      "change": "+6"
+    },
+    {
+      "party": "National Democratic Congress",
+      "votes": 13372,
+      "percentage": 30.59,
+      "seats": 5,
+      "change": "–2"
+    },
+    {
+      "party": "Grenada United Labour Party",
+      "votes": 11608,
+      "percentage": 26.55,
+      "seats": 2,
+      "change": "–2"
+    },
+    {
+      "party": "The National Party",
+      "votes": 2826,
+      "percentage": 6.46,
+      "seats": 0,
+      "change": "–2"
+    },
+    {
+      "party": "Maurice Bishop Patriotic Movement",
+      "votes": 694,
+      "percentage": 1.59,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "United Republican Party",
+      "votes": 67,
+      "percentage": 0.15,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Good Old Democratic Party",
+      "votes": 16,
+      "percentage": 0.04,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Independents",
+      "votes": 982,
+      "percentage": 2.25,
+      "seats": 0,
+      "change": "0"
+    }
+  ]
+}

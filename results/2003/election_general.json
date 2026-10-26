@@ -1,0 +1,55 @@
+{
+  "election": "2003 Grenadian General Election",
+  "year": 2003,
+  "results": [
+    {
+      "party": "New National Party",
+      "votes": 22566,
+      "percentage": 47.77,
+      "seats": 8,
+      "change": "–7"
+    },
+    {
+      "party": "National Democratic Congress",
+      "votes": 21445,
+      "percentage": 45.4,
+      "seats": 7,
+      "change": "+7"
+    },
+    {
+      "party": "Grenada United Labour Party",
+      "votes": 2243,
+      "percentage": 4.75,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "People's Labour Movement",
+      "votes": 933,
+      "percentage": 1.98,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Good Old Democratic Party",
+      "votes": 10,
+      "percentage": 0.02,
+      "seats": 0,
+      "change": "0"
+    },
+    {
+      "party": "Grenada Renaissance Party",
+      "votes": 6,
+      "percentage": 0.01,
+      "seats": 0,
+      "change": "New"
+    },
+    {
+      "party": "Independents",
+      "votes": 36,
+      "percentage": 0.08,
+      "seats": 0,
+      "change": "0"
+    }
+  ]
+}
